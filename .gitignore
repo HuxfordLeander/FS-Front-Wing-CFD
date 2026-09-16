@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# OpenFOAM generated files
+constant/polyMesh/
+processor*/
+postProcessing/
+log.*
+*.foam
+
+# Visualisation output
+*.vtk
+*.vtu
+01_geometry/reference/
