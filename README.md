@@ -109,3 +109,17 @@ Next steps:
 
 > The baseline solution has converged numerically. Mesh independence and further validation are still required before the aerodynamic results are treated as validated CFD data.
 
+
+### Near-Wall Resolution
+
+The converged baseline case produced the following airfoil-surface y+ values:
+
+| y+ metric | Value |
+|---|---:|
+| Minimum | ~15.0 |
+| Maximum | ~195.9 |
+| Average | ~63.9 |
+
+The current mesh therefore provides a preliminary wall-function-based solution rather than a fully wall-resolved boundary-layer simulation.
+
+The wide y+ range indicates that improved near-wall meshing and prism-layer refinement should be investigated before drawing final aerodynamic conclusions, particularly for drag prediction.
