@@ -1,0 +1,105 @@
+
+FoamFile
+{format      ascii;class       dictionary;object      snappyHexMeshDict;}
+
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+mergeTolerance 1e-6;
+
+geometry
+{
+    naca0012.stl
+    {
+        type triSurfaceMesh;
+        name airfoil;
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells 100000;
+    maxGlobalCells 200000;
+    minRefinementCells 0;
+
+    nCellsBetweenLevels 2;
+
+    features
+    (
+    );
+
+    refinementSurfaces
+    {
+        airfoil
+        {
+            level (3 4);
+        }
+    }
+    
+    refinementRegions{}
+
+    resolveFeatureAngle 30;
+
+    locationInMesh (1.0 0.5 0.0);
+
+    allowFreeStandingZoneFaces true;
+}
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 2.0;
+    nSolveIter 30;
+    nRelaxIter 5;
+}
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+
+    minVol 1e-13;
+    minTetQuality 1e-15;
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.02;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+
+    nSmoothScale 4;
+    errorReduction 0.75;
+}
+
+addLayersControls
+{
+    relativeSizes true;
+
+    layers
+    {
+        airfoil
+        {
+            nSurfaceLayers 4;
+        }
+    }
+
+    expansionRatio 1.2;
+    finalLayerThickness 0.3;
+    minThickness 0.1;
+    nGrow 0;
+
+    featureAngle 60;
+
+    nRelaxIter 5;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle 90;
+
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+}
